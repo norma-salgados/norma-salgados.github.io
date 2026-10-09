@@ -1,6 +1,6 @@
 import WhatsAppIcon from './WhatsAppIcon';
 import { ui, type Lang } from '../i18n/ui';
-import { mapsLink, site, whatsappLink } from '../config/site';
+import { mapsEmbedLink, mapsLink, site, whatsappLink } from '../config/site';
 
 export default function ContactSection({ lang }: { lang: Lang }) {
   const t = ui[lang];
@@ -24,6 +24,14 @@ export default function ContactSection({ lang }: { lang: Lang }) {
           </a>
           {lang !== 'ja' && <span className="contact__romaji">{site.pickupAddressRomaji}</span>}
         </address>
+        <iframe
+          className="contact__map"
+          src={mapsEmbedLink(site.pickupAddress, lang)}
+          title={t.contact.mapTitle}
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+          allowFullScreen
+        />
       </div>
     </section>
   );

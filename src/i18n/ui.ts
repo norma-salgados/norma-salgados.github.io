@@ -46,7 +46,7 @@ interface Dictionary {
     shipping: string;
   };
   howToOrder: { title: string; steps: { title: string; text: string }[] };
-  contact: { title: string; cta: string; phoneLabel: string; addressLabel: string };
+  contact: { title: string; cta: string; phoneLabel: string; addressLabel: string; mapTitle: string };
   whatsappMessage: string;
   whatsappItemMessage: (item: string) => string;
   footer: { rights: string };
@@ -128,6 +128,7 @@ export const ui: Record<Lang, Dictionary> = {
       cta: 'Falar no WhatsApp',
       phoneLabel: 'Telefone',
       addressLabel: 'Endereço',
+      mapTitle: 'Mapa do local de retirada',
     },
     whatsappMessage: 'Olá, Norma Salgados! Gostaria de fazer uma encomenda.',
     whatsappItemMessage: (item) => `Olá, Norma Salgados! Gostaria de encomendar ${item}.`,
@@ -208,6 +209,7 @@ export const ui: Record<Lang, Dictionary> = {
       cta: 'Chat on WhatsApp',
       phoneLabel: 'Phone',
       addressLabel: 'Address',
+      mapTitle: 'Map of the pickup location',
     },
     whatsappMessage: 'Hello, Norma Salgados! I would like to place an order.',
     whatsappItemMessage: (item) => `Hello, Norma Salgados! I would like to order ${item}.`,
@@ -288,6 +290,7 @@ export const ui: Record<Lang, Dictionary> = {
       cta: 'WhatsAppで問い合わせ',
       phoneLabel: '電話番号',
       addressLabel: '住所',
+      mapTitle: '受け取り場所の地図',
     },
     whatsappMessage: 'こんにちは、Norma Salgadosさん！注文をお願いしたいです。',
     whatsappItemMessage: (item) => `こんにちは、Norma Salgadosさん！${item}を注文したいです。`,

@@ -22,3 +22,8 @@ export function whatsappLink(message: string): string {
 export function mapsLink(address: string): string {
   return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
 }
+
+/** URL do mapa embutido (iframe) do Google Maps — não precisa de chave de API */
+export function mapsEmbedLink(address: string, lang: string): string {
+  return `https://maps.google.com/maps?q=${encodeURIComponent(address)}&hl=${lang}&z=16&output=embed`;
+}
