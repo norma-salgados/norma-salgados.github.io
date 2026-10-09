@@ -32,7 +32,7 @@ export default function MenuCard({ lang, name, description, image, badge, price 
         </div>
         <p>{description}</p>
         {price && <p className="card__price">{price}</p>}
-        <a href={whatsappLink(t.whatsappItemMessage(name))} className="card__cta" target="_blank" rel="noopener">
+        <a href={whatsappLink(t.whatsappItemMessage(name))} className="card__cta" data-goatcounter-click={`whatsapp-item: ${name}`} target="_blank" rel="noopener">
           <WhatsAppIcon size={16} />
           {t.menu.ask}
         </a>

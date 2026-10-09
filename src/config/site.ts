@@ -13,6 +13,8 @@ export const site = {
   pickupAddressParts: { region: '静岡県', locality: '磐田市', street: '堀之内1640-27' },
   /** Perfil da Empresa no Google (link de compartilhamento) */
   googleBusinessUrl: 'https://share.google/bc50j7mSvtVmaz4LA',
+  /** Código da conta do GoatCounter (contador de visitas). Vazio = contador desligado */
+  goatcounterCode: 'normasalgados' as string,
   /** Imagem de prévia ao compartilhar o link (WhatsApp, LINE, Facebook) — 1200×630 */
   ogImage: '/og-image.jpg',
 } as const;

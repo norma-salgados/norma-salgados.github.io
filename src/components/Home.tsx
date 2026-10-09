@@ -30,6 +30,7 @@ export default function Home({ lang }: { lang: Lang }) {
       <a
         href={whatsappLink(t.whatsappMessage)}
         className="wa-float"
+        data-goatcounter-click="whatsapp-flutuante"
         target="_blank"
         rel="noopener"
         aria-label={t.floatingLabel}

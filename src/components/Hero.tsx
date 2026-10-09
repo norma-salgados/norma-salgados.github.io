@@ -15,7 +15,7 @@ export default function Hero({ lang }: { lang: Lang }) {
         )}
         <p className="hero__subtitle">{t.hero.subtitle}</p>
         <div className="hero__actions">
-          <a href={whatsappLink(t.whatsappMessage)} className="btn btn--wa" target="_blank" rel="noopener">
+          <a href={whatsappLink(t.whatsappMessage)} className="btn btn--wa" data-goatcounter-click="whatsapp-topo" target="_blank" rel="noopener">
             <WhatsAppIcon size={22} />
             {t.hero.cta}
           </a>

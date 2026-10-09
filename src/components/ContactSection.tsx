@@ -10,7 +10,7 @@ export default function ContactSection({ lang }: { lang: Lang }) {
     <section id="contato" className="section contact">
       <div className="container contact__inner">
         <h2 className="section__title">{t.contact.title}</h2>
-        <a href={whatsappLink(t.whatsappMessage)} className="btn btn--wa btn--lg" target="_blank" rel="noopener">
+        <a href={whatsappLink(t.whatsappMessage)} className="btn btn--wa btn--lg" data-goatcounter-click="whatsapp-contato" target="_blank" rel="noopener">
           <WhatsAppIcon size={26} />
           {t.contact.cta}
         </a>
