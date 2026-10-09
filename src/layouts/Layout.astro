@@ -1,0 +1,129 @@
+---
+import '../styles/global.css';
+import { htmlLang, languages, pathFor, ui, type Lang } from '../i18n/ui';
+import { site } from '../config/site';
+import { menu, priceYen, unitsPerPrice } from '../config/menu';
+import { sweets } from '../config/sweets';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = ui[lang];
+const canonical = new URL(pathFor(lang), Astro.site);
+const abs = (path: string) => new URL(path, Astro.site).href;
+const otherLangs = (Object.keys(languages) as Lang[]).filter((l) => l !== lang);
+
+// Dados estruturados (schema.org) para o Google entender o negócio local
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FoodEstablishment',
+  name: site.name,
+  url: canonical.href,
+  description: t.meta.description,
+  image: abs(site.ogImage),
+  ...(site.logo && { logo: abs(site.logo) }),
+  telephone: `+${site.whatsappNumber}`,
+  servesCuisine: 'Brazilian',
+  priceRange: `¥${priceYen.frozen.toLocaleString('ja')}–¥${priceYen.fried.toLocaleString('ja')} / ${unitsPerPrice}`,
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: site.pickupAddressParts.street,
+    addressLocality: site.pickupAddressParts.locality,
+    addressRegion: site.pickupAddressParts.region,
+    postalCode: site.pickupPostalCode,
+    addressCountry: 'JP',
+  },
+  areaServed: [
+    { '@type': 'City', name: 'Hamamatsu' },
+    { '@type': 'City', name: 'Iwata' },
+    { '@type': 'Country', name: 'Japan' },
+  ],
+  hasMenu: {
+    '@type': 'Menu',
+    hasMenuSection: [
+      {
+        '@type': 'MenuSection',
+        name: t.menu.title,
+        hasMenuItem: menu.map((item) => ({
+          '@type': 'MenuItem',
+          name: t.menu.items[item.id].name,
+          description: t.menu.items[item.id].description,
+          ...(item.image && { image: abs(item.image) }),
+          offers: (['fried', 'frozen'] as const).map((kind) => ({
+            '@type': 'Offer',
+            name: t.menu.priceLabels[kind],
+            price: priceYen[kind],
+            priceCurrency: 'JPY',
+            eligibleQuantity: { '@type': 'QuantitativeValue', value: unitsPerPrice, unitText: 'pieces' },
+          })),
+        })),
+      },
+      {
+        '@type': 'MenuSection',
+        name: t.sweets.title,
+        hasMenuItem: sweets.map((item) => ({
+          '@type': 'MenuItem',
+          name: t.sweets.items[item.id].name,
+          description: t.sweets.items[item.id].description,
+          ...(item.image && { image: abs(item.image) }),
+          offers: {
+            '@type': 'Offer',
+            price: item.price.yen,
+            priceCurrency: 'JPY',
+            ...(item.price.unit === 'hundred' && {
+              eligibleQuantity: { '@type': 'QuantitativeValue', value: 100, unitText: 'pieces' },
+            }),
+          },
+        })),
+      },
+    ],
+  },
+};
+---
+
+<!doctype html>
+<html lang={htmlLang[lang]}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{t.meta.title}</title>
+    <meta name="description" content={t.meta.description} />
+    <link rel="canonical" href={canonical} />
+    {
+      (Object.keys(languages) as Lang[]).map((l) => (
+        <link rel="alternate" hreflang={htmlLang[l]} href={abs(pathFor(l))} />
+      ))
+    }
+    <link rel="alternate" hreflang="x-default" href={abs('/')} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:title" content={t.meta.title} />
+    <meta property="og:description" content={t.meta.description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content={t.meta.ogLocale} />
+    {otherLangs.map((l) => <meta property="og:locale:alternate" content={ui[l].meta.ogLocale} />)}
+    <meta property="og:image" content={abs(site.ogImage)} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={site.name} />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <meta name="theme-color" content="#c2410c" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Noto+Sans+JP:wght@400;500;700&family=Nunito+Sans:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
