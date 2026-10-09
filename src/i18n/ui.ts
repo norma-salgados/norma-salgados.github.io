@@ -61,11 +61,11 @@ export const ui: Record<Lang, Dictionary> = {
       title: 'Norma Salgados | Salgados brasileiros em Hamamatsu e Iwata',
       ogLocale: 'pt_BR',
       description:
-        'Coxinha, bolinho de queijo, bolinho de carne, bolinho de pizza e kibe, além de brigadeiro, beijinho e bolo gelado. Fritos para Hamamatsu e região, congelados para todo o Japão. Encomende pelo WhatsApp!',
+        'Coxinha, bolinho de queijo, bolinho de carne, bolinho de pizza e kibe, além de brigadeiro, beijinho e bolo gelado. Fritos para Hamamatsu, Iwata e região, congelados para todo o Japão. Encomende pelo WhatsApp!',
     },
     nav: { menu: 'Salgados', sweets: 'Doces', delivery: 'Entrega', about: 'Sobre', howToOrder: 'Como pedir', contact: 'Contato' },
     hero: {
-      tagline: 'Salgados brasileiros em Hamamatsu e região',
+      tagline: 'Salgados brasileiros em Hamamatsu, Iwata e região',
       title: 'O sabor do Brasil, feito com carinho.',
       subtitle:
         'Salgados fresquinhos para festas, eventos e para matar a saudade. Faça sua encomenda direto pelo WhatsApp.',
@@ -108,7 +108,7 @@ export const ui: Record<Lang, Dictionary> = {
       title: 'Entrega e retirada',
       fried: {
         title: 'Salgados fritos',
-        area: 'Para Hamamatsu e região.',
+        area: 'Para Hamamatsu, Iwata e região.',
         pickupLabel: 'Local de retirada',
       },
       frozen: { title: 'Salgados congelados', area: 'Enviamos para todo o Japão.' },
@@ -142,11 +142,11 @@ export const ui: Record<Lang, Dictionary> = {
       title: 'Norma Salgados | Brazilian Snacks in Hamamatsu & Iwata, Japan',
       ogLocale: 'en_US',
       description:
-        'Coxinha, cheese balls, beef croquettes, pizza balls and kibe, plus brigadeiro, beijinho and bolo gelado. Fried for Hamamatsu and area, frozen shipped anywhere in Japan. Order via WhatsApp!',
+        'Coxinha, cheese balls, beef croquettes, pizza balls and kibe, plus brigadeiro, beijinho and bolo gelado. Fried for Hamamatsu, Iwata and area, frozen shipped anywhere in Japan. Order via WhatsApp!',
     },
     nav: { menu: 'Savory snacks', sweets: 'Sweets', delivery: 'Delivery', about: 'About', howToOrder: 'How to order', contact: 'Contact' },
     hero: {
-      tagline: 'Brazilian savory snacks in Hamamatsu & area',
+      tagline: 'Brazilian savory snacks in Hamamatsu, Iwata & area',
       title: 'A taste of Brazil, made with love.',
       subtitle:
         'Freshly made salgados for parties, events, or whenever you miss home. Order directly on WhatsApp.',
@@ -189,7 +189,7 @@ export const ui: Record<Lang, Dictionary> = {
       title: 'Delivery & pickup',
       fried: {
         title: 'Fried salgados',
-        area: 'For Hamamatsu and the surrounding area.',
+        area: 'For Hamamatsu, Iwata and the surrounding area.',
         pickupLabel: 'Pickup location',
       },
       frozen: { title: 'Frozen salgados', area: 'We ship anywhere in Japan.' },
@@ -223,11 +223,11 @@ export const ui: Record<Lang, Dictionary> = {
       title: 'Norma Salgados | 浜松・磐田のブラジル惣菜（コシーニャ・キビ）',
       ogLocale: 'ja_JP',
       description:
-        'コシーニャ、チーズボール、ミートボール、ピザボール、キビ、ブリガデイロなどのスイーツも。揚げたては浜松周辺、冷凍は全国発送。ご注文はWhatsAppで！',
+        'コシーニャ、チーズボール、ミートボール、ピザボール、キビ、ブリガデイロなどのスイーツも。揚げたては浜松・磐田周辺、冷凍は全国発送。ご注文はWhatsAppで！',
     },
     nav: { menu: 'サウガード', sweets: 'スイーツ', delivery: 'お届け', about: '私たちについて', howToOrder: 'ご注文方法', contact: 'お問い合わせ' },
     hero: {
-      tagline: '浜松エリアのブラジル惣菜スナック',
+      tagline: '浜松・磐田エリアのブラジル惣菜スナック',
       title: '心をこめて作る、ブラジルの味。',
       subtitle:
         'パーティーやイベントに、できたてのサウガードを。ご注文はWhatsAppからお気軽にどうぞ。',
@@ -270,7 +270,7 @@ export const ui: Record<Lang, Dictionary> = {
       title: 'お届け・受け取り',
       fried: {
         title: '揚げたてサウガード',
-        area: '浜松市とその周辺地域が対象です。',
+        area: '浜松市・磐田市とその周辺地域が対象です。',
         pickupLabel: '受け取り場所',
       },
       frozen: { title: '冷凍サウガード', area: '日本全国へ発送します。' },

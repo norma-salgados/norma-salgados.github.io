@@ -11,6 +11,8 @@ export const site = {
   pickupAddressRomaji: '〒438-0205 Shizuoka-ken Iwata-shi Horinouchi 1640-27',
   /** Endereço separado em partes, usado nos dados estruturados (SEO) */
   pickupAddressParts: { region: '静岡県', locality: '磐田市', street: '堀之内1640-27' },
+  /** Perfil da Empresa no Google (link de compartilhamento) */
+  googleBusinessUrl: 'https://share.google/bc50j7mSvtVmaz4LA',
   /** Imagem de prévia ao compartilhar o link (WhatsApp, LINE, Facebook) — 1200×630 */
   ogImage: '/og-image.jpg',
 } as const;
@@ -18,6 +20,9 @@ export const site = {
 export function whatsappLink(message: string): string {
   return `https://wa.me/${site.whatsappNumber}?text=${encodeURIComponent(message)}`;
 }
+
+/** Busca usada nos mapas: nome + endereço faz o Google abrir o Perfil da Empresa, não só o endereço */
+export const mapsQuery = `${site.name} ${site.pickupAddress}`;
 
 export function mapsLink(address: string): string {
   return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;

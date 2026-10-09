@@ -1,7 +1,7 @@
 ---
 import '../styles/global.css';
 import { htmlLang, languages, pathFor, ui, type Lang } from '../i18n/ui';
-import { site } from '../config/site';
+import { mapsLink, mapsQuery, site } from '../config/site';
 import { menu, priceYen, unitsPerPrice } from '../config/menu';
 import { sweets } from '../config/sweets';
 
@@ -26,6 +26,8 @@ const jsonLd = {
   ...(site.logo && { logo: abs(site.logo) }),
   telephone: `+${site.whatsappNumber}`,
   servesCuisine: 'Brazilian',
+  hasMap: mapsLink(mapsQuery),
+  sameAs: [site.googleBusinessUrl],
   priceRange: `¥${priceYen.frozen.toLocaleString('ja')}–¥${priceYen.fried.toLocaleString('ja')} / ${unitsPerPrice}`,
   address: {
     '@type': 'PostalAddress',
@@ -113,7 +115,8 @@ const jsonLd = {
     <meta name="twitter:card" content="summary_large_image" />
 
     <meta name="theme-color" content="#c2410c" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

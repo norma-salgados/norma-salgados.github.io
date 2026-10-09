@@ -1,5 +1,5 @@
 import { ui, type Lang } from '../i18n/ui';
-import { mapsLink, site } from '../config/site';
+import { mapsLink, mapsQuery, site } from '../config/site';
 
 export default function DeliverySection({ lang }: { lang: Lang }) {
   const t = ui[lang];
@@ -17,7 +17,7 @@ export default function DeliverySection({ lang }: { lang: Lang }) {
               <span lang="ja">〒{site.pickupPostalCode} {site.pickupAddress}</span>
               {lang !== 'ja' && <span className="delivery__romaji">{site.pickupAddressRomaji}</span>}
             </address>
-            <a href={mapsLink(site.pickupAddress)} className="delivery__map" target="_blank" rel="noopener">
+            <a href={mapsLink(mapsQuery)} className="delivery__map" target="_blank" rel="noopener">
               {t.delivery.mapLink} →
             </a>
           </div>
